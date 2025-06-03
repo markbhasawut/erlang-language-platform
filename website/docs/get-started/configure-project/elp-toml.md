@@ -48,14 +48,17 @@ This section is used to configure project discovery.
 The `apps` and `deps` fields can contain a string pattern or a sequence of
 string patterns. Each pattern can use wildcards. E.g.
 
+```toml
     [build_info]
     apps = ["some_apps/*", "more_apps/*"]
     deps = "deps/*"
+```
 
 Each pattern will be expanded, behind the scenes, to an _app_, as described in
 the [build_info.json](custom-project.md#the-build_infojson-format) section. Each
 app will look something like:
 
+```json
     {
         "name": "app_name",
         "dir": "path/to/app",                         // Relative to project root
@@ -65,15 +68,18 @@ app will look something like:
         "include_dirs": ["include", ...],             // Relative to app dir, defaults to []
         "macros": ["MACRO", ...],                     // Defaults to []
     }
+```
 
 It is possible to override these values for a given app. For example:
 
+```toml
     [build_info]
     apps = [ "some_apps/*",
              "more_apps/*",
              {name = "special_app", dir = "some_apps/special_app", "src_dirs" = ["src", "more_src"]}
              ]
     deps = "deps/*"
+```
 
 The order in which the entries are specified is important, in the sense that
 "the last entry wins". In the above example, the `special_app` in
