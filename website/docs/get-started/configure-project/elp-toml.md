@@ -131,3 +131,4 @@ Configure ELP for [rebar3](https://rebar3.org/)-based projects.
 | Key     | Type   | Description                                                                                                                                | Default |
 | ------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------ | ------- |
 | profile | String | The `rebar3` profile to use for project discovery. Only used if the `file` property is specified in the [build_info](#build-info) section. | test    |
+| rebar_path | String | A custom path to the `rebar3` executable for project. If not specify, the default installation path will be used. | ~/.cache/rebar3/bin/ |
